@@ -9,16 +9,15 @@ print("""
 Перевірив: Регіда П.Г
 """)
 
-a0 = 1
-a1 = 1
-a2 = 3
-a3 = 2
+a0 = int(input("Enter a0: "))
+a1 = int(input("Enter a1: "))
+a2 = int(input("Enter a2: "))
+a3 = int(input("Enter a3: "))
 
 #Сгенерируем параметри x1, x2, x3
-X1 = [random.randrange(1,21,1) for _ in range(8)]
-X2 = [random.randrange(1,21,1) for _ in range(8)]
-X3 = [random.randrange(1,21,1) for _ in range(8)]
+X1, X2, X3 = ([random.randrange(1,21,1) for _ in range(8)] for _ in range(3))
 x_matrix = np.array([X1, X2, X3])
+
 Y = [a0 + a1*X1[i] + a2*X2[i] + a3*X3[i] for i in range(8)]
 Y_max = max(Y)
 
@@ -54,4 +53,3 @@ print("Xn3: %s"%Xn3)
 print(Xn_matrix.transpose())
 print("Yэт: %s"%Yet)
 print("max(Y): ", Y_max)
-
