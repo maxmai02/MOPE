@@ -41,13 +41,6 @@ Xn_matrix = np.array([Xn1, Xn2, Xn3])
 #Розрахуэмо Yet
 Yet = a0 + (a1 * X01) + (a2 * X02) + (a3 * X03)
 
-def FindYet(yet, array):
-    current = array[0]
-    for i in range(len(array)):
-        if abs(yet - array[i]) < abs(yet - current):
-            current = array[i]
-    return current
-
 print("a0=%s a1=%s a2=%s a3=%s"%(a0, a1, a2, a3))
 print("X1: %s"%X1)
 print("X2: %s"%X2)
@@ -61,4 +54,4 @@ print("Xn3: %s"%Xn3)
 print(Xn_matrix.transpose())
 print("Yэт: %s"%Yet)
 print("max(Y): ", Y_max)
-print("Найближче до Yet:", FindYet(Yet, Y))
+
