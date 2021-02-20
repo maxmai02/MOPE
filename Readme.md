@@ -14,7 +14,7 @@
  
 Результат роботи програми
 
-[![image.jpg](https://i.postimg.cc/CKCc9t0G/Screenshot-6.png)](https://postimg.cc/4Kdv9Wmy)
+[![image.jpg](https://i.postimg.cc/D0VwpnVg/Screenshot-6.png)](https://postimg.cc/sQczvFgQ)
 
 Контрольні питання 
 1. З чого складається план експерименту?
