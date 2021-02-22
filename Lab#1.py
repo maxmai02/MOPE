@@ -13,43 +13,42 @@ a0 = int(input("Enter a0: "))
 a1 = int(input("Enter a1: "))
 a2 = int(input("Enter a2: "))
 a3 = int(input("Enter a3: "))
+a = [a0, a1, a2, a3]
 
 #Сгенерируем параметри x1, x2, x3
-X1, X2, X3 = ([random.randrange(1,21,1) for _ in range(8)] for _ in range(3))
-x_matrix = np.array([X1, X2, X3])
+x = [[random.randint(20, 50) for i in range(8)],
+     [random.randint(20, 50) for i in range(8)],
+     [random.randint(20, 50) for i in range(8)]]
+x_matrix = np.array([x[0], x[1], x[2]])
 
-Y = [a0 + a1*X1[i] + a2*X2[i] + a3*X3[i] for i in range(8)]
+Y = [a[0] + (a[1] * x[0][i]) + (a[2] * x[1][i]) + (a[3] * x[2][i]) for i in range(8)]
+
 Y_max = max(Y)
 
 #Розрахуємо X01, X02, X03
-X01 = (max(X1)+min(X1))/2
-X02 = (max(X2)+min(X2))/2
-X03 = (max(X3)+min(X3))/2
+x0 = [(max(x[0]) + min(x[0])) / 2,
+      (max(x[1]) + min(x[1])) / 2,
+      (max(x[2]) + min(x[2])) / 2]
 
 #Розрахуємо dX1, dX2, dX3
-dX1 = X01-min(X1)
-dX2 = X02-min(X2)
-dX3 = X03-min(X3)
+dx = [x0[0] - min(x[0]),
+      x0[1] - min(x[1]),
+      x0[2] - min(x[2])]
 
 #Розрахуємо Xn1, Xn2, Xn3
-Xn1 = [(X1[i] - X01)/dX1 for i in range(8)]
-Xn2 = [(X2[i] - X02)/dX2 for i in range(8)]
-Xn3 = [(X3[i] - X03)/dX3 for i in range(8)]
-Xn_matrix = np.array([Xn1, Xn2, Xn3])
+xn = [[(x[0][i] - x0[0]) / dx[0] for i in range(8)],
+      [(x[1][i] - x0[1]) / dx[1] for i in range(8)],
+      [(x[2][i] - x0[2]) / dx[2] for i in range(8)]]
+
+xn_matrix = np.array([xn[0], xn[1], xn[2]])
 
 #Розрахуэмо Yet
-Yet = a0 + (a1 * X01) + (a2 * X02) + (a3 * X03)
+Yet = a[0] + (a[1] * x0[0]) + (a[1] * x0[1]) + (a[2] * x0[2])
 
-print("a0=%s a1=%s a2=%s a3=%s"%(a0, a1, a2, a3))
-print("X1: %s"%X1)
-print("X2: %s"%X2)
-print("X3: %s"%X3)
-print("Y: %s"%Y)
-print("X01, X02, X03: %s %s %s"%(X01, X02, X03))
-print("dx: %s %s %s"%(dX1, dX2, dX3))
-print("Xn1: %s"%Xn1)
-print("Xn2: %s"%Xn2)
-print("Xn3: %s"%Xn3)
-print(Xn_matrix.transpose())
+print("X1 X2 X3:" + "\n", x_matrix.transpose())
+print("Y: ", Y)
+print("x01, x02, x03: ", x0[0], x0[1], x0[2])
+print("dx1, dx2, dx3: ", dx[0], dx[1], dx[2])
+print("Xn1, Xn2, xn3:" + "\n", xn_matrix.transpose())
 print("Yэт: %s"%Yet)
 print("max(Y): ", Y_max)
