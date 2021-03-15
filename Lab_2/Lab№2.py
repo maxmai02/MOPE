@@ -49,7 +49,7 @@ Ruv = [((abs(Ouv[0] - 1) / sigma)),
       ((abs(Ouv[2] - 1) / sigma))]
 
 kr = 2
-for i in range(len(Ruv)):
+for i in Ruv:
     if i > kr:
         Proverka="Помилка, дисперсія неоднорідна"
     else:
