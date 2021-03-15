@@ -3,7 +3,7 @@ import numpy as np
 import math
 #Май Тієн Ноанг ІО-93 вар: 318
 
-m=5
+m=6
 x1_min,x1_max = 20,70
 x2_min,x2_max = -15,45
 y_max = (30 - 11) * 10
@@ -50,11 +50,10 @@ Ruv = [((abs(Ouv[0] - 1) / sigma)),
 
 kr = 2
 for i in range(len(Ruv)):
-    if Ruv[i] > kr:
-        Proverka="недостатня кількість єксперементів"
+    if i > kr:
+        Proverka="Помилка, дисперсія неоднорідна"
     else:
         Proverka=("дисперсія однорідна")
-
 
 xn = [[-1, -1], [-1,  1], [1,  -1]]
 
@@ -73,7 +72,6 @@ b0=(np.linalg.det([[my, mx[0], mx[1]],[a11, a1, a2],[a22, a2, a3]])/np.linalg.de
 b1=(np.linalg.det([[1, my, mx[1]],[mx[0], a11, a2],[mx[1], a22, a3]])/np.linalg.det([[1, mx[0], mx[1]],[mx[0], a1, a2],[mx[1], a2, a3]]))
 b2=(np.linalg.det([[1, mx[0], my],[mx[0], a1, a11],[mx[1], a2, a22]])/np.linalg.det([[1, mx[0], mx[1]],[mx[0], a1, a2],[mx[1], a2, a3]]))
 
-#6. Проведемо натуралізацію коефіцієнтів:
 Tx1=abs(x1_max - x1_min) / 2
 Tx2=abs(x2_max - x2_min) / 2
 x10=(x1_max + x1_min) / 2
@@ -91,6 +89,7 @@ yn3 = a0 + a1 * x1_min + a2 * x2_max
 print("y = ")
 for row in y:
     print(' | '.join([str(elem) for elem in row]))
+
 
 print("середнє значення функції відгуку в рядках {}\nдисперсії по рядках - {}\nосновне відхилення - {}\nFuv - {}\nOuv - {}\nRuv - {}\nПеревірка - {}\nb0 - {}\nb1 - {}\nb2 - {}\n ".format(y_srednie,Dispersia,sigma,Fuv,Ouv,Ruv,Proverka,b0,b1,b2))
 print("Перевірка")
