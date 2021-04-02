@@ -8,4 +8,4 @@
 
 Screenshots of the program:
 
-![222](https://i2.paste.pics/391ca8403197d8183abd91aaba5924aa.png)
+![222](https://i2.paste.pics/C31SB.png)
