@@ -4,7 +4,7 @@ from numpy.linalg import solve
 from scipy.stats import f, t
 from functools import partial
 
-#Варіант 318
+#Варіант 318 | ІО-93 Май Тієн
 
 # Conducting a three-factor shot experiment
 class Fractional:
