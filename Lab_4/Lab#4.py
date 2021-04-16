@@ -4,7 +4,8 @@ import sklearn.linear_model as lm
 from scipy.stats import f, t
 from numpy.linalg import solve
 
-
+#Май Тієн ІО-93 
+#Варіант 18
 def regression(x, b):
     y = sum([x[i] * b[i] for i in range(len(x))])
     return y
