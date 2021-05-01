@@ -5,7 +5,7 @@ from scipy.stats import f, t
 from functools import partial
 from pyDOE2 import *
 
-
+#Май Тієн ІО-93
 def regression(x, b):
     y = sum([x[i] * b[i] for i in range(len(x))])
     return y
