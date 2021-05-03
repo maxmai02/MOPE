@@ -188,7 +188,7 @@ natural_plan = generate_factors_table(natur_plan_raw)
 y_arr = generate_y(m, natur_plan_raw)
 while not cochran_criteria(m, N, y_arr):
     m += 1
-    y_arr = generate_y(m, natural_plan)
+    y_arr = generate_y(100, natural_plan)
 
 print_matrix(m, N, natural_plan, y_arr, " для натуралізованих факторів:")
 coefficients = find_coefficients(natural_plan, y_arr)
@@ -196,4 +196,3 @@ print_equation(coefficients)
 importance = student_criteria(m, N, y_arr, coefficients)
 d = len(list(filter(None, importance)))
 fisher_criteria(m, N, d, natural_plan, y_arr, coefficients, importance)
-
